@@ -13,6 +13,13 @@ import com.example.recyclerview.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 修复TextView 跑马灯不滚动的问题
+ * https://blog.csdn.net/onlySound/article/details/119897857
+ * 
+ * RecyclerView item 中 textView 跑马灯效果无效的
+ * https://blog.csdn.net/tiantaiaiqing/article/details/79200299?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-79200299-blog-80576528.235%5Ev28%5Epc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-79200299-blog-80576528.235%5Ev28%5Epc_relevant_default&utm_relevant_index=3
+ */
 public class MarqueeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView tvTest1;
@@ -35,36 +42,53 @@ public class MarqueeActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initData() {
-        String s1 = "test1123456789123456789123456789";
+        String s1 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s1);
-        String s2 = "test1123456789123456789123456789";
+        String s2 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s2);
-        String s3 = "test1123456789123456789123456789";
+        String s3 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s3);
-        String s4 = "test1123456789123456789123456789";
+        String s4 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s4);
-        String s5 = "test1123456789123456789123456789";
+        String s5 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s5);
-        String s6 = "test1123456789123456789123456789";
+        String s6 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s6);
-        String s7 = "test1123456789123456789123456789";
+        String s7 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s7);
-        String s8 = "test1123456789123456789123456789";
+        String s8 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s8);
-        String s9 = "test1123456789123456789123456789";
+        String s9 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s9);
-        String s10 = "test1123456789123456789123456789";
+        String s10 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s10);
-        String s11 = "test1123456789123456789123456789";
+        String s11 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s11);
-        String s12 = "test1123456789123456789123456789";
+        String s12 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s12);
-        String s13 = "test1123456789123456789123456789";
+        String s13 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s13);
-        String s14 = "test1123456789123456789123456789";
+        String s14 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s14);
-        String s15 = "test1123456789123456789123456789";
+        String s15 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
         datas.add(s15);
+
+        String s16 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
+        datas.add(s16);
+        String s17 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
+        datas.add(s17);
+        String s18 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
+        datas.add(s18);
+        String s19 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
+        datas.add(s19);
+        String s20 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
+        datas.add(s20);
+        String s21 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
+        datas.add(s21);
+        String s22 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
+        datas.add(s22);
+        String s23 = "属性11111111111111111的点点滴滴多多多多多多多多多多多多多多多多多多的点点滴滴多多多多多多多多多1";
+        datas.add(s23);
     }
 
     public void initRecyclerView(){

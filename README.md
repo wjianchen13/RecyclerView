@@ -8,3 +8,4 @@ RecyclerView基础使用：
 6.RecyclerView添加头部底部
 7.RecyclerView瀑布流
 8.RecyclerView项目瀑布流
+9.RecyclerView实现TextView多条目跑马灯
