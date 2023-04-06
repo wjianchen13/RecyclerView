@@ -10,6 +10,7 @@ import com.example.recyclerview.add.AddActivity;
 import com.example.recyclerview.base.BaseActivity;
 import com.example.recyclerview.fall.FallActivity;
 import com.example.recyclerview.header.HeaderActivity;
+import com.example.recyclerview.marquee.MarqueeActivity;
 import com.example.recyclerview.refresh.RefreshActivity;
 import com.example.recyclerview.span.SpanActivity;
 import com.example.recyclerview.visiblestate.StateActivity;
@@ -109,4 +110,16 @@ public class MainActivity extends AppCompatActivity {
         it.setClass(MainActivity.this, FallActivity.class);
         startActivity(it);
     }
+
+    /**
+     * TextView paomad
+     * @param
+     * @return
+     */
+    public void onMarquee(View v) {
+        Intent it = new Intent();
+        it.setClass(MainActivity.this, MarqueeActivity.class);
+        startActivity(it);
+    }
+
 }

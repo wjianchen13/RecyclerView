@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ff0000"
+    android:layout_height="50dp">
+
+    <com.example.recyclerview.marquee.MarqueeTextView
+        android:id="@+id/tv_test"
+        android:layout_width="100dp"
+        android:layout_height="43dp"
+        android:layout_centerInParent="true"
+        android:background="#00ff00"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:text="android:shadow 属性111111111111111111"
+        android:textSize="14sp" />
+
+</RelativeLayout>
