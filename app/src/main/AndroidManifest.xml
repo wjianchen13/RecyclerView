@@ -24,6 +24,8 @@
         <activity android:name=".add.AddActivity" />
         <activity android:name=".fall.FallActivity"/>
         <activity android:name=".marquee.MarqueeActivity"/>
+        <activity android:name=".chat.ChatActivity" />
+        <activity android:name=".chat.ChatActivity1" />
 
     </application>
 
