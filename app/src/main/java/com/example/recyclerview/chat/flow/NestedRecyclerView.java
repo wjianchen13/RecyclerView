@@ -42,13 +42,13 @@ public class NestedRecyclerView extends RecyclerView {
             //以实际屏宽为标准
 //            width = getContext().getResources().getDisplayMetrics().widthPixels;
             width = layoutManager.getTotalWidth()  + getPaddingLeft() + getPaddingRight();
-            System.out.println("===========================> width: " + width);
         }
         if (heightMode == View.MeasureSpec.EXACTLY) {
             height = measureHeight;
         } else {
             height = layoutManager.getTotalHeight() + getPaddingTop() + getPaddingBottom();
         }
+        System.out.println("===========================> width: " + width);
         setMeasuredDimension(width, height);
 
     }

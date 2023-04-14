@@ -38,7 +38,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-        classifies.add(new Product.Classify("颜色颜色颜色颜色颜色颜色颜色颜色颜色颜色颜色颜色颜色颜色颜色颜色", Arrays.asList(new Product.Classify.Des("红色"),
+        classifies.add(new Product.Classify("颜色颜色", Arrays.asList(new Product.Classify.Des("红色"),
                 new Product.Classify.Des("白色"),
                 new Product.Classify.Des("蓝色"),
                 new Product.Classify.Des("咖啡色"))));
