@@ -8,6 +8,8 @@ import android.view.View;
 
 import com.example.recyclerview.add.AddActivity;
 import com.example.recyclerview.base.BaseActivity;
+import com.example.recyclerview.chat.ChatActivity;
+import com.example.recyclerview.chat.ChatActivity1;
 import com.example.recyclerview.fall.FallActivity;
 import com.example.recyclerview.header.HeaderActivity;
 import com.example.recyclerview.marquee.MarqueeActivity;
@@ -119,6 +121,29 @@ public class MainActivity extends AppCompatActivity {
     public void onMarquee(View v) {
         Intent it = new Intent();
         it.setClass(MainActivity.this, MarqueeActivity.class);
+        startActivity(it);
+    }
+
+    /**
+     * 直播间聊天室
+     * @param
+     * @return
+     */
+    public void onChat(View v) {
+        Intent it = new Intent();
+        it.setClass(MainActivity.this, ChatActivity.class);
+        startActivity(it);
+    }
+
+
+    /**
+     * 直播间聊天室
+     * @param
+     * @return
+     */
+    public void onChat1(View v) {
+        Intent it = new Intent();
+        it.setClass(MainActivity.this, ChatActivity1.class);
         startActivity(it);
     }
 
