@@ -15,6 +15,7 @@ import com.example.recyclerview.header.HeaderActivity;
 import com.example.recyclerview.marquee.MarqueeActivity;
 import com.example.recyclerview.refresh.RefreshActivity;
 import com.example.recyclerview.span.SpanActivity;
+import com.example.recyclerview.third.activity.ThirdActivity;
 import com.example.recyclerview.visiblestate.StateActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -144,6 +145,17 @@ public class MainActivity extends AppCompatActivity {
     public void onChat1(View v) {
         Intent it = new Intent();
         it.setClass(MainActivity.this, ChatActivity1.class);
+        startActivity(it);
+    }
+
+    /**
+     * 第三方例子
+     * @param
+     * @return
+     */
+    public void onThird(View v) {
+        Intent it = new Intent();
+        it.setClass(MainActivity.this, ThirdActivity.class);
         startActivity(it);
     }
 

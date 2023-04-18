@@ -9,3 +9,7 @@ RecyclerView基础使用：
 7.RecyclerView瀑布流
 8.RecyclerView项目瀑布流
 9.RecyclerView实现TextView多条目跑马灯
+
+#参考文档
+理解RecyclerView（一）—初步使用和布局管理器  
+https://blog.csdn.net/m0_37796683/article/details/103697121  

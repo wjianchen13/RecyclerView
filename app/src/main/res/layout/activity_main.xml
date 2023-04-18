@@ -102,4 +102,13 @@
         android:onClick="onChat1"
         android:textAllCaps="false"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="第三方例子"
+        android:onClick="onThird"
+        android:textAllCaps="false"/>
+
 </LinearLayout>
