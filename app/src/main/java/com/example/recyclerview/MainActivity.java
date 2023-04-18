@@ -15,6 +15,7 @@ import com.example.recyclerview.header.HeaderActivity;
 import com.example.recyclerview.marquee.MarqueeActivity;
 import com.example.recyclerview.refresh.RefreshActivity;
 import com.example.recyclerview.span.SpanActivity;
+import com.example.recyclerview.test.TestActivity;
 import com.example.recyclerview.third.activity.ThirdActivity;
 import com.example.recyclerview.visiblestate.StateActivity;
 
@@ -159,4 +160,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(it);
     }
 
+    /**
+     * 测试demo
+     * 
+     * @param
+     * @return
+     */
+    public void onTest(View v) {
+        startActivity(new Intent(MainActivity.this, TestActivity.class));
+    }
+    
 }

@@ -27,6 +27,7 @@
         <activity android:name=".chat.ChatActivity" />
         <activity android:name=".chat.ChatActivity1" />
         <activity android:name=".third.activity.ThirdActivity" />
+        <activity android:name=".test.TestActivity" />
         <activity
             android:name=".third.activity.LinearVerticalActivity"
             android:screenOrientation="portrait" />
