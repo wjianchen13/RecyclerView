@@ -7,19 +7,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recyclerview.R;
-import com.example.recyclerview.third.adapter.LinearVerticalAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 测试
+ * 测试（使用BaseRecyclerViewAdapterHelper）
  */
-public class TestActivity extends AppCompatActivity {
+public class TestActivity1 extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recyclerview);
+        setContentView(R.layout.activity_recyclerview_test1);
         //1.查找控件
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
@@ -43,7 +43,7 @@ public class TestActivity extends AppCompatActivity {
 
 
         //4.数据适配器
-        TestAdapter adapter = new TestAdapter(this, stringList);
+        TestAdapter1 adapter = new TestAdapter1(this, stringList);
 
 //        adapter.notifyItemRemoved();
         //设置适配器到recyclerView

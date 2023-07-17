@@ -16,6 +16,7 @@ import com.example.recyclerview.marquee.MarqueeActivity;
 import com.example.recyclerview.refresh.RefreshActivity;
 import com.example.recyclerview.span.SpanActivity;
 import com.example.recyclerview.test.TestActivity;
+import com.example.recyclerview.test.TestActivity1;
 import com.example.recyclerview.third.activity.ThirdActivity;
 import com.example.recyclerview.visiblestate.StateActivity;
 
@@ -161,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 测试demo
+     * 测试（RecyclerView Adapter原始写法）
      * 
      * @param
      * @return
@@ -169,5 +170,15 @@ public class MainActivity extends AppCompatActivity {
     public void onTest(View v) {
         startActivity(new Intent(MainActivity.this, TestActivity.class));
     }
-    
+
+    /**
+     * 测试（使用BaseRecyclerViewAdapterHelper）
+     *
+     * @param
+     * @return
+     */
+    public void onTest1(View v) {
+        startActivity(new Intent(MainActivity.this, TestActivity1.class));
+    }
+
 }
