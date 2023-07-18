@@ -29,6 +29,7 @@
         <activity android:name=".third.activity.ThirdActivity" />
         <activity android:name=".test.TestActivity" />
         <activity android:name=".test.TestActivity1" />
+        <activity android:name=".cache.CacheActivity" />
         <activity
             android:name=".third.activity.LinearVerticalActivity"
             android:screenOrientation="portrait" />

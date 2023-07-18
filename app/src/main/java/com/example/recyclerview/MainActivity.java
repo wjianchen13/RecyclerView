@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.recyclerview.add.AddActivity;
 import com.example.recyclerview.base.BaseActivity;
+import com.example.recyclerview.cache.CacheActivity;
 import com.example.recyclerview.chat.ChatActivity;
 import com.example.recyclerview.chat.ChatActivity1;
 import com.example.recyclerview.fall.FallActivity;
@@ -180,6 +181,18 @@ public class MainActivity extends AppCompatActivity {
     public void onTest1(View v) {
         startActivity(new Intent(MainActivity.this, TestActivity1.class));
     }
+
+    /**
+     * 项目缓存测试
+     *
+     * @param
+     * @return
+     */
+    public void onCache(View v) {
+        startActivity(new Intent(MainActivity.this, CacheActivity.class));
+    }
+
+
 
 }
 
