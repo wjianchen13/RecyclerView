@@ -19,6 +19,7 @@ import java.util.List;
 public class TestActivity extends AppCompatActivity {
 
     public static int scrollDis = 0;
+    public static int pos = 0;
 
     private RecyclerView mRv;
     private LinearLayoutManager mManager;
@@ -53,26 +54,32 @@ public class TestActivity extends AppCompatActivity {
 //        adapter.notifyItemRemoved();
         //设置适配器到recyclerView
         mRv.setAdapter(adapter);
-        mRv.post(new Runnable() {
-            @Override
-            public void run() {
-                mRv.scrollBy(0, scrollDis);
-            }
-        });
+//        mRv.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                mRv.scrollBy(0, scrollDis);
+//            }
+//        });
     }
 
     public void onTest1(View v) {
-        if (mRv != null) {
-            int scrollDistance = mRv.computeVerticalScrollOffset();
-            scrollDis = scrollDistance;
-            Utils.log("scrollDistance: " + scrollDistance);
+//        if (mRv != null) {
+//            int scrollDistance = mRv.computeVerticalScrollOffset();
+//            scrollDis = scrollDistance;
+//            Utils.log("scrollDistance: " + scrollDistance);
+//        }
+        if (mManager != null) {
+            pos = mManager.findLastVisibleItemPosition();
         }
+
     }
 
     public void onTest2(View v) {
-        if (mRv != null) {
-            mRv.scrollBy(0, scrollDis);
-        }
+//        if (mRv != null) {
+//            mRv.scrollBy(0, scrollDis);
+//        }
+        if(mManager != null)
+            mManager.scrollToPosition(pos);
     }
 
 }
