@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Flowlayout 测试"/>
+
+    <com.example.recyclerview.flowlayout.FlowLayout
+        android:id="@+id/flow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:flChildSpacing="auto"
+        app:flChildSpacingForLastRow="align"
+        app:flRowSpacing="8dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:visibility="visible"
+            android:text="@string/sun" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/mon" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/tue" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/wed" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/thu" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/fri" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/sat" />
+
+    </com.example.recyclerview.flowlayout.FlowLayout>
+
+</LinearLayout>

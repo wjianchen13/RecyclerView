@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">RecyclerView</string>
+
+    <string name="sun">SUN</string>
+    <string name="mon">MON</string>
+    <string name="tue">TUE</string>
+    <string name="wed">WED</string>
+    <string name="thu">THU</string>
+    <string name="fri">FRI</string>
+    <string name="sat">SAT</string>
+    <string name="sun1">SUN1</string>
+    <string name="mon1">MON1</string>
+    <string name="tue1">TUE1</string>
+    <string name="wed1">WED1</string>
+    <string name="thu1">THU1</string>
+    <string name="fri1">FRI1</string>
+    <string name="sat1">SAT1</string>
+    <string name="with_recyclerview">FlowLayout with RecyclerView</string>
+
 </resources>

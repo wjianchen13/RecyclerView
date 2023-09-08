@@ -70,6 +70,17 @@
         <activity
             android:name=".third.activity.ScrollViewActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".flowlayout.FlowlayoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flowlayout.FlowlayoutTestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flowlayout.FlowlayoutListActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

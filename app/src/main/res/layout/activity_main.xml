@@ -141,5 +141,15 @@
             android:text="项目缓存测试"
             android:onClick="onCache"
             android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="流式布局测试"
+            android:onClick="onFlowlayout"
+            android:textAllCaps="false"/>
+
     </LinearLayout>
 </ScrollView>

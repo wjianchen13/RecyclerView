@@ -12,6 +12,7 @@ import com.example.recyclerview.cache.CacheActivity;
 import com.example.recyclerview.chat.ChatActivity;
 import com.example.recyclerview.chat.ChatActivity1;
 import com.example.recyclerview.fall.FallActivity;
+import com.example.recyclerview.flowlayout.FlowlayoutActivity;
 import com.example.recyclerview.header.HeaderActivity;
 import com.example.recyclerview.marquee.MarqueeActivity;
 import com.example.recyclerview.refresh.RefreshActivity;
@@ -192,7 +193,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, CacheActivity.class));
     }
 
-
+    /**
+     * 流式布局测试
+     *
+     * @param
+     * @return
+     */
+    public void onFlowlayout(View v) {
+        startActivity(new Intent(MainActivity.this, FlowlayoutActivity.class));
+    }
 
 }
 

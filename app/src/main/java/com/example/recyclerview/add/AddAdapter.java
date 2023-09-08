@@ -69,7 +69,6 @@ public class AddAdapter extends BaseMultiItemQuickAdapter<AddBean, BaseViewHolde
         DisplayMetrics metrics = resources.getDisplayMetrics();
         if (metrics == null)
             return 0;
-
         return metrics.widthPixels;
     }
 
