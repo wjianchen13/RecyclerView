@@ -1,5 +1,6 @@
 package com.example.recyclerview.flowlayout;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 
@@ -30,6 +31,16 @@ public class FlowlayoutListActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvTest.setLayoutManager(layoutManager);
+        rvTest.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+                outRect.left = 20;
+                outRect.top = 20;
+                outRect.right = 20;
+                outRect.bottom = 20;
+            }
+        });
 
     }
 
