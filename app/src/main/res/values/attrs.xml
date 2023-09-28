@@ -23,4 +23,11 @@
         </attr>
         <attr name="android:gravity"/>
     </declare-styleable>
+
+
+    <!-- 自动滚动的textview -->
+    <declare-styleable name="marquee_view">
+        <attr name="marquee_text_color" format="color|reference" /> <!-- id字体颜色 -->
+        <attr name="marquee_text_size" format="dimension" /> <!-- id字体大小 -->
+    </declare-styleable>
 </resources>

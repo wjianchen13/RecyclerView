@@ -2,6 +2,8 @@ package com.example.recyclerview.flowlayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,10 +14,13 @@ import com.example.recyclerview.R;
  */
 public class FlowlayoutTestActivity extends AppCompatActivity {
 
+    private TextView tvTest1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flowlayout_test);
+        tvTest1 = findViewById(R.id.tv_test1);
     }
 
     /**
@@ -23,7 +28,9 @@ public class FlowlayoutTestActivity extends AppCompatActivity {
      * @param v
      */
     public void onTest1(View v) {
-
+        ViewGroup.LayoutParams params = tvTest1.getLayoutParams();
+        params.width = 480;
+        tvTest1.setLayoutParams(params);
     }
 
     /**

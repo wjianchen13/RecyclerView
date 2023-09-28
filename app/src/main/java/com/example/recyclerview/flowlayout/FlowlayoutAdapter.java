@@ -32,13 +32,12 @@ public class FlowlayoutAdapter extends BaseMultiItemQuickAdapter<FlowlayoutBean,
     protected void convert(final BaseViewHolder baseViewHolder, FlowlayoutBean bean) {
         switch (bean.getUiType()) {
             case 0:
-                resetView(baseViewHolder);
-                List<FlowlayoutItemBean> itemBeans = bean.getList();
-                for(int i = 0; i <itemBeans.size(); i ++) {
-                    setView(baseViewHolder, itemBeans.get(i));
-                }
-
-
+//                resetView(baseViewHolder);
+//                List<FlowlayoutItemBean> itemBeans = bean.getList();
+//                for(int i = 0; i <itemBeans.size(); i ++) {
+//                    setView(baseViewHolder, itemBeans.get(i));
+//                }
+                ((UserBadgeView)baseViewHolder.getView(R.id.ubv)).setView(bean);
 
 //                baseViewHolder.setText(R.id.tv_name, bean.getName());
                 break;
@@ -60,92 +59,6 @@ public class FlowlayoutAdapter extends BaseMultiItemQuickAdapter<FlowlayoutBean,
 //                break;
         }
 
-    }
-
-    private void resetView(BaseViewHolder baseViewHolder) {
-        baseViewHolder.setGone(R.id.tv_test1, false);
-        baseViewHolder.setGone(R.id.tv_test2, false);
-        baseViewHolder.setGone(R.id.tv_test3, false);
-        baseViewHolder.setGone(R.id.tv_test4, false);
-        baseViewHolder.setGone(R.id.tv_test5, false);
-        baseViewHolder.setGone(R.id.tv_test6, false);
-        baseViewHolder.setGone(R.id.tv_test7, false);
-        baseViewHolder.setGone(R.id.tv_test8, false);
-        baseViewHolder.setGone(R.id.tv_test9, false);
-        baseViewHolder.setGone(R.id.tv_test10, false);
-        baseViewHolder.setGone(R.id.tv_test11, false);
-        baseViewHolder.setGone(R.id.tv_test12, false);
-        baseViewHolder.setGone(R.id.tv_test13, false);
-        baseViewHolder.setGone(R.id.tv_test14, false);
-        baseViewHolder.setGone(R.id.tv_test15, false);
-    }
-
-    private void setView(BaseViewHolder baseViewHolder, FlowlayoutItemBean itemBean) {
-        if(itemBean != null && baseViewHolder != null) {
-            int id = itemBean.getId();
-            switch (id) {
-                case FlowlayoutItemBean.TYPE_1:
-                    baseViewHolder.setText(R.id.tv_test1, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test1, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_2:
-                    baseViewHolder.setText(R.id.tv_test2, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test2, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_3:
-                    baseViewHolder.setText(R.id.tv_test3, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test3, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_4:
-//                    baseViewHolder.setText(R.id.tv_test4, itemBean.getContent());
-//                    baseViewHolder.setGone(R.id.tv_test4, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_5:
-                    baseViewHolder.setText(R.id.tv_test5, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test5, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_6:
-                    baseViewHolder.setText(R.id.tv_test6, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test6, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_7:
-                    baseViewHolder.setText(R.id.tv_test7, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test7, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_8:
-                    baseViewHolder.setText(R.id.tv_test8, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test8, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_9:
-                    baseViewHolder.setText(R.id.tv_test9, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test9, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_10:
-                    baseViewHolder.setText(R.id.tv_test10, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test10, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_11:
-                    baseViewHolder.setText(R.id.tv_test11, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test11, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_12:
-                    baseViewHolder.setText(R.id.tv_test12, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test12, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_13:
-                    baseViewHolder.setText(R.id.tv_test13, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test13, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_14:
-                    baseViewHolder.setText(R.id.tv_test14, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test14, true);
-                    break;
-                case FlowlayoutItemBean.TYPE_15:
-                    baseViewHolder.setText(R.id.tv_test15, itemBean.getContent());
-                    baseViewHolder.setGone(R.id.tv_test15, true);
-                    break;
-            }
-        }
     }
 
     /**

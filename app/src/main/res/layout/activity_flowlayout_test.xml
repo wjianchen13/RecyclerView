@@ -23,6 +23,7 @@
         app:flRowSpacing="8dp">
 
         <TextView
+            android:id="@+id/tv_test1"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:background="@drawable/label_bg"
@@ -80,5 +81,14 @@
             android:text="@string/sat" />
 
     </com.example.recyclerview.flowlayout.FlowLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="test"
+        android:onClick="onTest1"
+        android:textAllCaps="false"/>
 
 </LinearLayout>
