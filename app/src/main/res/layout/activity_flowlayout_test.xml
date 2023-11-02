@@ -17,10 +17,13 @@
         android:id="@+id/flow2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#ff00ff00"
+        android:gravity="center_horizontal"
         android:layout_marginTop="32dp"
-        app:flChildSpacing="auto"
+        app:flChildSpacing="8dp"
         app:flChildSpacingForLastRow="align"
-        app:flRowSpacing="8dp">
+        app:flRowSpacing="8dp"
+        app:flRtl="true">
 
         <TextView
             android:id="@+id/tv_test1"

@@ -66,9 +66,24 @@ public class FlowLayout extends ViewGroup {
     private int mRowVerticalGravity = ROW_VERTICAL_GRAVITY_AUTO;
     private int mExactMeasuredHeight;
 
+    /**
+     * 水平行间距
+     */
     private List<Float> mHorizontalSpacingForRow = new ArrayList<>();
+
+    /**
+     * 这一行中的高度值
+     */
     private List<Integer> mHeightForRow = new ArrayList<>();
+
+    /**
+     * 这一行的宽度，不包含左右间距，中间间距包含
+     */
     private List<Integer> mWidthForRow = new ArrayList<>();
+
+    /**
+     * 保存每一行的元素的个数
+     */
     private List<Integer> mChildNumForRow = new ArrayList<>();
 
     public FlowLayout(Context context) {
@@ -147,10 +162,9 @@ public class FlowLayout extends ViewGroup {
 
             int childWidth = child.getMeasuredWidth() + horizontalMargin;
             int childHeight = child.getMeasuredHeight() + verticalMargin;
-            if (allowFlow && rowWidth + childWidth > rowSize) { // Need flow to next row
+            if (allowFlow && rowWidth + childWidth > rowSize) { // 换行之后第一个元素
                 // Save parameters for current row
-                mHorizontalSpacingForRow.add(
-                        getSpacingForRow(childSpacing, rowSize, rowTotalChildWidth, childNumInRow));
+                mHorizontalSpacingForRow.add(getSpacingForRow(childSpacing, rowSize, rowTotalChildWidth, childNumInRow));
                 mChildNumForRow.add(childNumInRow);
                 mHeightForRow.add(maxChildHeightInRow);
                 mWidthForRow.add(rowWidth - (int) tmpSpacing);
@@ -239,7 +253,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         final int paddingLeft = getPaddingLeft(), paddingRight = getPaddingRight(),
                 paddingTop = getPaddingTop(), paddingBottom = getPaddingBottom();
 
@@ -250,13 +264,13 @@ public class FlowLayout extends ViewGroup {
         int horizontalGravity = mGravity & Gravity.HORIZONTAL_GRAVITY_MASK;
 
         switch (verticalGravity) {
-            case Gravity.CENTER_VERTICAL: {
-                int offset = (b - t - paddingTop - paddingBottom - mExactMeasuredHeight) / 2;
+            case Gravity.CENTER_VERTICAL: { // 垂直居中计算y坐标
+                int offset = (bottom - top - paddingTop - paddingBottom - mExactMeasuredHeight) / 2;
                 y += offset;
                 break;
             }
-            case Gravity.BOTTOM: {
-                int offset = b - t - paddingTop - paddingBottom - mExactMeasuredHeight;
+            case Gravity.BOTTOM: { // 底部对齐计算y坐标
+                int offset = bottom - top - paddingTop - paddingBottom - mExactMeasuredHeight;
                 y += offset;
                 break;
             }
@@ -264,9 +278,13 @@ public class FlowLayout extends ViewGroup {
                 break;
         }
 
-        int horizontalPadding = paddingLeft + paddingRight, layoutWidth = r - l;
-        x += getHorizontalGravityOffsetForRow(horizontalGravity, layoutWidth, horizontalPadding, 0);
-
+        int horizontalPadding = paddingLeft + paddingRight; // 左右padding
+        int layoutWidth = right - left; // 父布局宽度
+        if(mRtl) {
+            x -= getHorizontalGravityOffsetForRow(horizontalGravity, layoutWidth, horizontalPadding, 0);
+        } else {
+            x += getHorizontalGravityOffsetForRow(horizontalGravity, layoutWidth, horizontalPadding, 0);
+        }
         int verticalRowGravity = mRowVerticalGravity & Gravity.VERTICAL_GRAVITY_MASK;
 
         int rowCount = mChildNumForRow.size(), childIdx = 0;
@@ -294,28 +312,34 @@ public class FlowLayout extends ViewGroup {
 
                 int childWidth = child.getMeasuredWidth();
                 int childHeight = child.getMeasuredHeight();
-                int tt = y + marginTop;
+                int tTop = y + marginTop;
                 if (verticalRowGravity == Gravity.BOTTOM) {
-                    tt = y + rowHeight - marginBottom - childHeight;
+                    tTop = y + rowHeight - marginBottom - childHeight;
                 } else if (verticalRowGravity == Gravity.CENTER_VERTICAL) {
-                    tt = y + marginTop + (rowHeight - marginTop - marginBottom - childHeight) / 2;
+                    tTop = y + marginTop + (rowHeight - marginTop - marginBottom - childHeight) / 2;
                 }
-                int bb = tt + childHeight;
+                int bBottom = tTop + childHeight;
                 if (mRtl) {
                     int l1 = x - marginRight - childWidth;
                     int r1 = x - marginRight;
-                    child.layout(l1, tt, r1, bb);
+                    child.layout(l1, tTop, r1, bBottom);
                     x -= childWidth + spacing + marginLeft + marginRight;
                 } else {
                     int l2 = x + marginLeft;
                     int r2 = x + marginLeft + childWidth;
-                    child.layout(l2, tt, r2, bb);
+                    child.layout(l2, tTop, r2, bBottom);
                     x += childWidth + spacing + marginLeft + marginRight;
                 }
             }
             x = mRtl ? (getWidth() - paddingRight) : paddingLeft;
-            x += getHorizontalGravityOffsetForRow(
-                    horizontalGravity, layoutWidth, horizontalPadding, row + 1);
+            if(mRtl) {
+                x -= getHorizontalGravityOffsetForRow(
+                        horizontalGravity, layoutWidth, horizontalPadding, row + 1);
+            } else {
+                x += getHorizontalGravityOffsetForRow(
+                        horizontalGravity, layoutWidth, horizontalPadding, row + 1);
+            }
+
             y += rowHeight + mAdjustedRowSpacing;
         }
 
@@ -328,6 +352,14 @@ public class FlowLayout extends ViewGroup {
         }
     }
 
+    /**
+     * 获取水平偏移量，根据Gravity
+     * @param horizontalGravity 水平偏移
+     * @param parentWidth
+     * @param horizontalPadding
+     * @param row
+     * @return
+     */
     private int getHorizontalGravityOffsetForRow(int horizontalGravity, int parentWidth, int horizontalPadding, int row) {
         if (mChildSpacing == SPACING_AUTO || row >= mWidthForRow.size()
                 || row >= mChildNumForRow.size() || mChildNumForRow.get(row) <= 0) {
