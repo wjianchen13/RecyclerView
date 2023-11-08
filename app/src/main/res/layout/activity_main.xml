@@ -151,5 +151,14 @@
             android:onClick="onFlowlayout"
             android:textAllCaps="false"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="电影座位"
+            android:onClick="onTest2"
+            android:textAllCaps="false"/>
+
     </LinearLayout>
 </ScrollView>

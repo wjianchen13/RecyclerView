@@ -80,6 +80,10 @@
         <activity
             android:name=".flowlayout.FlowlayoutListActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".movie.MovieActivity"
+            android:screenOrientation="portrait" />
+
 
     </application>
 

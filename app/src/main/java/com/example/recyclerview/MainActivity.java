@@ -15,6 +15,7 @@ import com.example.recyclerview.fall.FallActivity;
 import com.example.recyclerview.flowlayout.FlowlayoutActivity;
 import com.example.recyclerview.header.HeaderActivity;
 import com.example.recyclerview.marquee.MarqueeActivity;
+import com.example.recyclerview.movie.MovieActivity;
 import com.example.recyclerview.refresh.RefreshActivity;
 import com.example.recyclerview.span.SpanActivity;
 import com.example.recyclerview.test.TestActivity;
@@ -201,6 +202,16 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onFlowlayout(View v) {
         startActivity(new Intent(MainActivity.this, FlowlayoutActivity.class));
+    }
+
+    /**
+     * 电影座位
+     *
+     * @param
+     * @return
+     */
+    public void onTest2(View v) {
+        startActivity(new Intent(MainActivity.this, MovieActivity.class));
     }
 
 }

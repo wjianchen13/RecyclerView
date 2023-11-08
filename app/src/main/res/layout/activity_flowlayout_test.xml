@@ -23,7 +23,8 @@
         app:flChildSpacing="8dp"
         app:flChildSpacingForLastRow="align"
         app:flRowSpacing="8dp"
-        app:flRtl="true">
+        app:flRtl="true"
+        app:flRowVerticalGravity="center">
 
         <TextView
             android:id="@+id/tv_test1"
@@ -31,7 +32,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/label_bg"
             android:gravity="center"
-            android:padding="8dp"
             android:visibility="visible"
             android:text="@string/sun" />
 
