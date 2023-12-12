@@ -83,7 +83,12 @@
         <activity
             android:name=".movie.MovieActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".resize.ResizeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".scroll.ScrollActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

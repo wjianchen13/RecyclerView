@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_test1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="test1"
+        android:clickable="true"
+        android:onClick="onTest1"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_test2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="test2"
+        android:clickable="true"
+        android:textSize="18sp"
+        android:onClick="onTest2"
+        android:layout_below="@id/btn_test1"/>
+
+    <Button
+        android:id="@+id/btn_test3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="test2"
+        android:clickable="true"
+        android:textSize="18sp"
+        android:onClick="onTest3"
+        android:layout_below="@id/btn_test2"/>
+
+    <com.example.recyclerview.resize.MyLinearLayout
+        android:id="@+id/llyt_list"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/btn_test3">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff0000ff"
+            android:scrollbars="vertical" />
+
+    </com.example.recyclerview.resize.MyLinearLayout>
+
+</RelativeLayout>

@@ -17,6 +17,8 @@ import com.example.recyclerview.header.HeaderActivity;
 import com.example.recyclerview.marquee.MarqueeActivity;
 import com.example.recyclerview.movie.MovieActivity;
 import com.example.recyclerview.refresh.RefreshActivity;
+import com.example.recyclerview.resize.ResizeActivity;
+import com.example.recyclerview.scroll.ScrollActivity;
 import com.example.recyclerview.span.SpanActivity;
 import com.example.recyclerview.test.TestActivity;
 import com.example.recyclerview.test.TestActivity1;
@@ -212,6 +214,26 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onTest2(View v) {
         startActivity(new Intent(MainActivity.this, MovieActivity.class));
+    }
+
+    /**
+     * 改变RecyclerView的高度
+     *
+     * @param
+     * @return
+     */
+    public void onTest3(View v) {
+        startActivity(new Intent(MainActivity.this, ResizeActivity.class));
+    }
+
+    /**
+     * RecyclerView 滚动到指定位置
+     *
+     * @param
+     * @return
+     */
+    public void onTest4(View v) {
+        startActivity(new Intent(MainActivity.this, ScrollActivity.class));
     }
 
 }

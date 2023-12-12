@@ -160,5 +160,23 @@
             android:onClick="onTest2"
             android:textAllCaps="false"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="改变RecyclerView的高度"
+            android:onClick="onTest3"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="RecyclerView 滚动到指定位置"
+            android:onClick="onTest4"
+            android:textAllCaps="false"/>
+
     </LinearLayout>
 </ScrollView>
