@@ -1,4 +1,4 @@
-package com.example.recyclerview.base;
+package com.example.recyclerview.count;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +11,11 @@ import java.util.List;
 /**
  * Created by baoyz on 2014/6/29.
  */
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
+public class CountAdapter extends RecyclerView.Adapter<CountAdapter.ViewHolder>{
 
     private List<String> mDataset;
 
-    public MyAdapter(List<String> dataset) {
+    public CountAdapter(List<String> dataset) {
         super();
         mDataset = dataset;
     }

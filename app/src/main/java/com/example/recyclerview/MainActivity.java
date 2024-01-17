@@ -1,17 +1,19 @@
 package com.example.recyclerview;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.recyclerview.add.AddActivity;
 import com.example.recyclerview.base.BaseActivity;
 import com.example.recyclerview.cache.CacheActivity;
 import com.example.recyclerview.chat.ChatActivity;
 import com.example.recyclerview.chat.ChatActivity1;
+import com.example.recyclerview.count.CountActivity;
 import com.example.recyclerview.fall.FallActivity;
+import com.example.recyclerview.flexbox.FlexboxActivity;
 import com.example.recyclerview.flowlayout.FlowlayoutActivity;
 import com.example.recyclerview.header.HeaderActivity;
 import com.example.recyclerview.marquee.MarqueeActivity;
@@ -122,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * TextView paomad
+     * TextView 跑马灯
      * @param
      * @return
      */
@@ -234,6 +236,26 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onTest4(View v) {
         startActivity(new Intent(MainActivity.this, ScrollActivity.class));
+    }
+
+    /**
+     * RecyclerView FlexboxLayoutManager
+     *
+     * @param
+     * @return
+     */
+    public void onTest5(View v) {
+        startActivity(new Intent(MainActivity.this, FlexboxActivity.class));
+    }
+
+    /**
+     * RecyclerView setSpanSizeLookup
+     *
+     * @param
+     * @return
+     */
+    public void onTest6(View v) {
+        startActivity(new Intent(MainActivity.this, CountActivity.class));
     }
 
 }

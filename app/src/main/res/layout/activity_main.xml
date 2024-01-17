@@ -178,5 +178,24 @@
             android:onClick="onTest4"
             android:textAllCaps="false"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="RecyclerView FlexboxLayoutManager"
+            android:onClick="onTest5"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="RecyclerView setSpanSizeLookup"
+            android:onClick="onTest6"
+            android:textAllCaps="false"/>
+
+
     </LinearLayout>
 </ScrollView>

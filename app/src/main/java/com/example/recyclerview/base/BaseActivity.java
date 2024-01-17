@@ -20,7 +20,6 @@ public class BaseActivity extends AppCompatActivity {
     private MyAdapter adapter;
     private List<String> datas1 = new ArrayList<>();
 
-
     private LinearLayoutManager layoutManager;
 
     private int i = 0;
@@ -78,8 +77,11 @@ public class BaseActivity extends AppCompatActivity {
 //                    adapter.notifyItemRemoved(adapter.getmDataset().size() - 1);
 //                }
 
-                datas.addAll(0, datas2);
-                adapter.notifyItemRangeChanged(0, 1);
+                datas.addAll(datas2);
+//                adapter.notifyItemRangeChanged(0, 1);
+                adapter.notifyItemChanged(datas.size() - 1);
+//                adapter.notifyDataSetChanged();
+                recyclerView.scrollToPosition(datas.size() - 1);
 //                adapter.notifyItemRangeChanged(0, 1);
 //                datas.addAll(0, datas2);
 //                adapter.notifyItemRangeChanged(0, datas2.size() * 2);
@@ -134,7 +136,7 @@ public class BaseActivity extends AppCompatActivity {
         // 默认是Vertical，可以不写
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 //        layoutManager.setStackFromEnd(true);
-        layoutManager.setReverseLayout(true);
+//        layoutManager.setReverseLayout(true);
         // 设置布局管理器
         recyclerView.setLayoutManager(layoutManager);
         String s1 = "test1";
@@ -168,10 +170,12 @@ public class BaseActivity extends AppCompatActivity {
 //        datas.add(s10);
 //        s10 = "test10";
 //        datas.add(s10);
+//        recyclerView.setItemAnimator(null);
 
         // 创建Adapter，并指定数据集
         adapter = new MyAdapter(datas);
         // 设置Adapter
         recyclerView.setAdapter(adapter);
+
     }
 }

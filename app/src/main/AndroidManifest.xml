@@ -89,6 +89,12 @@
         <activity
             android:name=".scroll.ScrollActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".flexbox.FlexboxActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".count.CountActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 
