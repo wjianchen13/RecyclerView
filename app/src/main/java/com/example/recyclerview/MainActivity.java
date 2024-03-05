@@ -22,6 +22,7 @@ import com.example.recyclerview.refresh.RefreshActivity;
 import com.example.recyclerview.resize.ResizeActivity;
 import com.example.recyclerview.scroll.ScrollActivity;
 import com.example.recyclerview.span.SpanActivity;
+import com.example.recyclerview.swipe.SwipeActivity;
 import com.example.recyclerview.test.TestActivity;
 import com.example.recyclerview.test.TestActivity1;
 import com.example.recyclerview.third.activity.ThirdActivity;
@@ -258,6 +259,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, CountActivity.class));
     }
 
+    /**
+     * RecyclerView 侧滑回复
+     *
+     * @param
+     * @return
+     */
+    public void onTest7(View v) {
+        startActivity(new Intent(MainActivity.this, SwipeActivity.class));
+    }
 }
 
 

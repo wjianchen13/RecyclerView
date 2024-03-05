@@ -95,6 +95,9 @@
         <activity
             android:name=".count.CountActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".swipe.SwipeActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

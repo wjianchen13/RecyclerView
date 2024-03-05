@@ -12,7 +12,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:background="#ff00ff00"
-        android:text="add"
+        android:text="添加数据"
         android:clickable="true"
         android:textSize="18sp"
         android:layout_alignParentBottom="true"/>
@@ -32,12 +32,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
         android:layout_above="@id/tv_test1">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="#ff0000ff"
             android:scrollbars="vertical"
             android:layout_below="@id/tv_test1" />

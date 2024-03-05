@@ -5,4 +5,5 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="live_chat_system_info_2">#bae05d</color><!-- 默认系统消息颜色 -->
     <color name="click_test">#00ff00</color><!-- 默认系统消息颜色 -->
+    <color name="cc4c4c4">#c4c4c4</color>
 </resources>
