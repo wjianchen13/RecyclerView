@@ -43,8 +43,8 @@ public class TestActivity extends AppCompatActivity {
         for (int i = 0; i < 30; i++) {
             TestBean bean = new TestBean();
             bean.setContent("第 " + i + " 个item");
-//            if(i == 2)
-//                bean.setItemType(1);
+            if(i == 2)
+                bean.setItemType(1);
             stringList.add(bean);
         }
 
