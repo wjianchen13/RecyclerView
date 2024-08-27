@@ -1,4 +1,4 @@
-package com.example.recyclerview.flowlayout;
+package com.example.recyclerview.flowlayout.list1;
 
 /**
  * Created by Administrator on 2018/3/29.

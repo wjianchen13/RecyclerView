@@ -1,4 +1,4 @@
-package com.example.recyclerview.flowlayout;
+package com.example.recyclerview.flowlayout.list1;
 
 import android.content.Context;
 import android.content.res.TypedArray;

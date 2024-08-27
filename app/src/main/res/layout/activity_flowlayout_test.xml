@@ -14,7 +14,7 @@
         android:text="Flowlayout 测试"/>
 
     <com.example.recyclerview.flowlayout.FlowLayout
-        android:id="@+id/flow2"
+        android:id="@+id/flow1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ff00ff00"
@@ -27,7 +27,7 @@
         app:flRowVerticalGravity="center">
 
         <TextView
-            android:id="@+id/tv_test1"
+            android:id="@+id/tv_test11"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:background="@drawable/label_bg"
@@ -92,6 +92,100 @@
         android:padding="10dp"
         android:text="test"
         android:onClick="onTest1"
+        android:textAllCaps="false"/>
+
+    <com.example.recyclerview.flowlayout.FlowLayout
+        android:id="@+id/flow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff00ff00"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        app:flChildSpacing="8dp"
+        app:flChildSpacingForLastRow="align"
+        app:flRowSpacing="8dp"
+        app:flRtl="false"
+        app:flRowVerticalGravity="center">
+
+        <TextView
+            android:id="@+id/tv_test21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="200dp"
+            android:background="@drawable/label_bg"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:gravity="center"
+            android:visibility="visible"
+            android:text="@string/sun" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/mon" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/tue" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/wed" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/thu" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/fri" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/label_bg"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/sat" />
+
+    </com.example.recyclerview.flowlayout.FlowLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="test2"
+        android:onClick="onTest2"
+        android:textAllCaps="false"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="test3"
+        android:onClick="onTest3"
         android:textAllCaps="false"/>
 
 </LinearLayout>

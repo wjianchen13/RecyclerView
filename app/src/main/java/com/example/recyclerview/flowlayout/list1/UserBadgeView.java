@@ -1,4 +1,4 @@
-package com.example.recyclerview.flowlayout;
+package com.example.recyclerview.flowlayout.list1;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,10 +7,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.recyclerview.R;
+import com.example.recyclerview.flowlayout.FlowLayout;
 
 import java.util.List;
 
-public class UserBadgeView extends FlowLayout{
+public class UserBadgeView extends FlowLayout {
 
     protected Context mContext;
     private MarqueeTextView mtvTest;
