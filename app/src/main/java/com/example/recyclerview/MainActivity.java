@@ -21,6 +21,7 @@ import com.example.recyclerview.movie.MovieActivity;
 import com.example.recyclerview.refresh.RefreshActivity;
 import com.example.recyclerview.resize.ResizeActivity;
 import com.example.recyclerview.scroll.ScrollActivity;
+import com.example.recyclerview.scroll_update.ScrollUpdateActivity;
 import com.example.recyclerview.span.SpanActivity;
 import com.example.recyclerview.swipe.SwipeActivity;
 import com.example.recyclerview.test.TestActivity;
@@ -267,6 +268,16 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onTest7(View v) {
         startActivity(new Intent(MainActivity.this, SwipeActivity.class));
+    }
+
+    /**
+     * RecyclerView 非滚动状态才调用数据改变相关方法
+     *
+     * @param
+     * @return
+     */
+    public void onTest8(View v) {
+        startActivity(new Intent(MainActivity.this, ScrollUpdateActivity.class));
     }
 }
 

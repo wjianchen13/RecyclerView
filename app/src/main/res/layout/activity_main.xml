@@ -205,5 +205,14 @@
             android:onClick="onTest7"
             android:textAllCaps="false"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="RecyclerView 非滚动状态才调用数据改变相关方法"
+            android:onClick="onTest8"
+            android:textAllCaps="false"/>
+
     </LinearLayout>
 </ScrollView>

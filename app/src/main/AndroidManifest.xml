@@ -98,6 +98,9 @@
         <activity
             android:name=".swipe.SwipeActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".scroll_update.ScrollUpdateActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 
