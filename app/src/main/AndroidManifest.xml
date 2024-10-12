@@ -78,7 +78,10 @@
             android:name=".flowlayout.FlowlayoutTestActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".flowlayout.FlowlayoutListActivity"
+            android:name=".flowlayout.list1.FlowlayoutListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flowlayout.list2.FlowlayoutListActivity2"
             android:screenOrientation="portrait" />
         <activity
             android:name=".movie.MovieActivity"

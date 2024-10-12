@@ -20,8 +20,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textAllCaps="false"
         android:onClick="onTest2"
-        android:text="Flowlayout 在RecyclerView的使用"/>
+        android:text="Flowlayout 在RecyclerView的使用"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_test3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="onTest3"
+        android:text="Flowlayout 在RecyclerView的使用2"
+        android:textAllCaps="false" />
 
 </LinearLayout>

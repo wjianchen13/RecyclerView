@@ -1,4 +1,4 @@
-package com.example.recyclerview.flowlayout;
+package com.example.recyclerview.flowlayout.list2;
 
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recyclerview.R;
+import com.example.recyclerview.flowlayout.list1.FlowlayoutBean;
+import com.example.recyclerview.flowlayout.list1.FlowlayoutItemBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,17 +18,17 @@ import java.util.List;
 /**
  * Flowlayout 在RecyclerView的使用
  */
-public class FlowlayoutListActivity extends AppCompatActivity {
+public class FlowlayoutListActivity2 extends AppCompatActivity {
 
     private RecyclerView rvTest;
-    private FlowlayoutAdapter adapter;
+    private FlowlayoutAdapter2 adapter;
     private List<String> datas1 = new ArrayList<>();
     private LinearLayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flowlayout_list);
+        setContentView(R.layout.activity_flowlayout_list_2);
         rvTest = findViewById(R.id.rv_test);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -54,7 +56,7 @@ public class FlowlayoutListActivity extends AppCompatActivity {
 //            FlowlayoutBean bean = new FlowlayoutBean("" + i);
 //            beans.add(bean);
 //        }
-        adapter = new FlowlayoutAdapter(this, getData());
+        adapter = new FlowlayoutAdapter2(this, getData());
         rvTest.setAdapter(adapter);
     }
 

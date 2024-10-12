@@ -6,8 +6,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.recyclerview.MainActivity;
 import com.example.recyclerview.R;
+import com.example.recyclerview.flowlayout.list1.FlowlayoutListActivity;
+import com.example.recyclerview.flowlayout.list2.FlowlayoutListActivity2;
 
 public class FlowlayoutActivity extends AppCompatActivity {
 
@@ -33,5 +34,12 @@ public class FlowlayoutActivity extends AppCompatActivity {
         startActivity(new Intent(FlowlayoutActivity.this, FlowlayoutListActivity.class));
     }
 
+    /**
+     * Flowlayout 在RecyclerView的使用
+     * @param v
+     */
+    public void onTest3(View v) {
+        startActivity(new Intent(FlowlayoutActivity.this, FlowlayoutListActivity2.class));
+    }
 
 }
