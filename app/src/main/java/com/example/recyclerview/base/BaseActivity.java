@@ -143,33 +143,33 @@ public class BaseActivity extends AppCompatActivity {
         datas.add(s1);
         String s2 = "test2";
         datas.add(s2);
-//        String s3 = "test3";
-//        datas.add(s3);
-//
-//        String s4 = "test4";
-//        datas.add(s4);
-//
-//        String s5 = "test5";
-//        datas.add(s5);
-//
-//        String s6 = "test6";
-//        datas.add(s6);
-//        String s7 = "test7";
-//        datas.add(s7);
-//        String s8 = "test8";
-//        datas.add(s8);
-//        String s9 = "test9";
-//        datas.add(s9);
-//        s10 = "test10";
-//        datas.add(s10);
-//        s10 = "test10";
-//        datas.add(s10);
-//        s10 = "test10";
-//        datas.add(s10);
-//        s10 = "test10";
-//        datas.add(s10);
-//        s10 = "test10";
-//        datas.add(s10);
+        String s3 = "test3";
+        datas.add(s3);
+
+        String s4 = "test4";
+        datas.add(s4);
+
+        String s5 = "test5";
+        datas.add(s5);
+
+        String s6 = "test6";
+        datas.add(s6);
+        String s7 = "test7";
+        datas.add(s7);
+        String s8 = "test8";
+        datas.add(s8);
+        String s9 = "test9";
+        datas.add(s9);
+        s10 = "test10";
+        datas.add(s10);
+        s10 = "test10";
+        datas.add(s10);
+        s10 = "test10";
+        datas.add(s10);
+        s10 = "test10";
+        datas.add(s10);
+        s10 = "test10";
+        datas.add(s10);
 //        recyclerView.setItemAnimator(null);
 
         // 创建Adapter，并指定数据集
