@@ -46,7 +46,7 @@
         android:background="#0000ff"
         android:orientation="horizontal"
         android:visibility="gone"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.constraintlayout.widget.Barrier
@@ -55,14 +55,6 @@
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="guideline1,guideline2" />
-
-<!--    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        app:layout_constraintGuide_end="80dp" />-->
 
     <View
         android:id="@+id/guideline3"
@@ -128,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
@@ -142,7 +134,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="滚动到具体位置"
+                android:text="添加数据"
                 android:onClick="onTest1"
                 android:textAllCaps="false"/>
 
@@ -152,7 +144,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="添加一组"
+                android:text="移动到某一条数据"
                 android:onClick="onTest2"
                 android:textAllCaps="false"/>
 
@@ -162,7 +154,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="删除一个"
+                android:text="删除第0条数据"
                 android:onClick="onTest3"
                 android:textAllCaps="false"/>
 
@@ -198,45 +190,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="test"
+                android:text="移动到底部"
                 android:onClick="onTest6"
-                android:textAllCaps="false"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="test1"
-                android:onClick="onTest7"
-                android:textAllCaps="false"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="test2"
-                android:onClick="onTest8"
-                android:textAllCaps="false"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="test3"
-                android:onClick="onTest9"
                 android:textAllCaps="false"/>
 
         </LinearLayout>

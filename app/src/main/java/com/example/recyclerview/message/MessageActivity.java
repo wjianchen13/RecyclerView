@@ -1,6 +1,6 @@
 package com.example.recyclerview.message;
 
-import static android.view.View.*;
+import static android.view.View.OnClickListener;
 
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -9,21 +9,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.Guideline;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recyclerview.R;
-import com.example.recyclerview.scroll.ScrollAdapter;
-import com.example.recyclerview.scroll.ScrollLayoutManager;
 import com.example.recyclerview.test.TestBean;
 import com.example.recyclerview.utils.SoftInputUtils;
-import com.example.recyclerview.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * RecyclerView 模拟消息相关功能
+ * 有一条数据已经显示了，要把这一条数据滚动到最下面的位置，怎么实现
  */
 public class MessageActivity extends AppCompatActivity implements OnClickListener{
 
@@ -78,10 +75,12 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
         }
 
         mAdapter1 = new MessageAdapter(this, mData1, rvScroll1);
+
         manager1.setDinoListener(mAdapter1);
 //        adapter.notifyItemRemoved();
         //设置适配器到recyclerView
-        rvScroll1.setAdapter(mAdapter1);
+//        rvScroll1.setAdapter(mAdapter1);
+        mAdapter1.bindToRecyclerView(rvScroll1);
     }
 
     /**
@@ -90,14 +89,9 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
      * @param v
      */
     public void onTest1(View v) {
-        executeAfterAllAnimationsAreFinished(new CallBack() {
-            @Override
-            public void onSuccess() {
-                TestBean bean = new TestBean();
-                bean.setContent("第 " + index ++ + " 个item");
-                mAdapter1.addMsg(bean);
-            }
-        });
+        TestBean bean = new TestBean();
+        bean.setContent("第 " + index ++ + " 个item");
+        mAdapter1.addMsg(bean);
     }
 
     public void onTest2(View v) {
@@ -117,58 +111,14 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
     }
 
     public void onTest5(View v) {
-        TestBean bean = new TestBean();
-        bean.setContent("第 " + index ++ + " 个item");
-        mAdapter1.addMsg(bean);
+//        TestBean bean = new TestBean();
+//        bean.setContent("第 " + index ++ + " 个item");
+//        mAdapter1.addMsg(bean);
+        mAdapter1.notifyDataSetChanged();
     }
 
     public void onTest6(View v) {
-
-    }
-
-    /**
-     * 滚动到具体位置
-     * @param v
-     */
-    public void onTest7(View v) {
-
-    }
-
-
-    public void onTest9(View v) {
-
-    }
-
-    private void executeAfterAllAnimationsAreFinished(CallBack cb) {
-        if(rvScroll1 != null) {
-            rvScroll1.post(new Runnable() {
-                @Override
-                public void run() {
-                    if(rvScroll1 != null) {
-                        Utils.log("rvScroll1.isAnimating(): " + rvScroll1.isAnimating());
-                    } else {
-                        Utils.log("rvScroll1 == null: ");
-                    }
-                    if(rvScroll1 != null && rvScroll1.isAnimating()) {
-                        if(rvScroll1.getItemAnimator() != null) {
-                            Utils.log("rvScroll1.getItemAnimator().isRunning(): " +  rvScroll1.getItemAnimator().isRunning());
-                        } else {
-                            Utils.log("rvScroll1.getItemAnimator() == null: ");
-                        }
-                        if(rvScroll1.getItemAnimator() != null && rvScroll1.getItemAnimator().isRunning()) {
-                            rvScroll1.postDelayed(this, 100);
-                        }
-                    } else {
-                        if(cb != null)
-                            cb.onSuccess();
-                    }
-                }
-            });
-        }
-    }
-
-    private interface CallBack {
-        void onSuccess();
+        mAdapter1.clearScroll2Bottom(true);
     }
 
     @Override
@@ -187,7 +137,14 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
         edtvTest.setVisibility(View.VISIBLE);
         imgvChat.setVisibility(View.GONE);
         imgvClose.setVisibility(View.VISIBLE);
-        SoftInputUtils.showSoftInput(edtvTest);
+        rvScroll1.post(new Runnable() {
+            @Override
+            public void run() {
+                SoftInputUtils.showSoftInput(edtvTest);
+            }
+        });
+//        SoftInputUtils.showSoftInput(edtvTest);
+//        mAdapter1.notifyDataSetChanged();
     }
 
 
@@ -198,7 +155,14 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
         edtvTest.setVisibility(View.GONE);
         imgvChat.setVisibility(View.VISIBLE);
         imgvClose.setVisibility(View.GONE);
+//        rvScroll1.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                SoftInputUtils.hideSoftInput(edtvTest);
+//            }
+//        });
         SoftInputUtils.hideSoftInput(edtvTest);
+//        mAdapter1.notifyDataSetChanged();
     }
 
 }

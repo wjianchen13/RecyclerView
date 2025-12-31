@@ -9,10 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.recyclerview.R;
-import com.example.recyclerview.scroll.ScrollLayoutManager;
 import com.example.recyclerview.test.TestBean;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -52,8 +50,6 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<TestBean, BaseView
 
     private final LinearLayoutManager layoutDinoManager;
 
-    private final List<TestBean> dinoCacheResults = new LinkedList<>();
-
     public MessageAdapter(Context context, List<TestBean> list, RecyclerView rv) {
         super(list);
         this.mContext = context;
@@ -68,27 +64,12 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<TestBean, BaseView
      * @param bean
      */
     public void addMsg(TestBean bean) {
-        if (have2Scroll()) {
-            if (bean != null && mData != null && mRv != null) {
-                mData.add(bean);
-                notifyItemInserted(mData.size() - 1);
+        if (bean != null && mData != null && mRv != null) {
+            mData.add(bean);
+            notifyItemInserted(mData.size() - 1);
+            if(isBottom()) {
                 mRv.scrollToPosition(mData.size() - 1);
             }
-        } else {
-            if (dinoCacheResults.size() >= DINO_MESSAGE_MAX_CACHE_SIZE) {
-                int removeCount = 0;
-                while (removeCount < DINO_MESSAGE_REMOVE_CACHE_SIZE && dinoCacheResults.size() > 0) {
-                    dinoCacheResults.remove(0);
-                    removeCount ++;
-                }
-                log("移除公屏缓存");
-            }
-            log("加入公屏消息缓存:" + dinoCacheResults.size());
-            dinoCacheResults.add(bean);
-//            setStatusUnread(DINO_PLUS_UNREAD_UPDATE);
-//            if (DinoDebugDispatcher.getInstance().isLiveMessageDebugInfo()) {
-//                chatListDinoHolder.rvDinoRecyclerview.invalidateItemDecorations();
-//            }
         }
     }
 
@@ -107,7 +88,7 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<TestBean, BaseView
      * 是否滑动到底部
      * 如果没有贴近到底部，那么不滑动
      */
-    public boolean have2Scroll() {
+    public boolean isBottom() {
         return isScrollDinoBottom;
     }
 
@@ -146,10 +127,10 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<TestBean, BaseView
      * 清除记录并滚到最底
      */
     public void clearScroll2Bottom(boolean scroll) {
-        readCache(true);
         isScrollDinoBottom = true;
         if (scroll) {
-            layoutDinoManager.scrollToPosition(getItemCount() - 1);
+//            layoutDinoManager.scrollToPosition(getItemCount() - 1);
+            layoutDinoManager.smoothScrollToPosition(getRecyclerView(), null, getItemCount() - 1);
         }
     }
 
@@ -182,40 +163,6 @@ public class MessageAdapter extends BaseMultiItemQuickAdapter<TestBean, BaseView
     @Override
     public void onViewAttachedToWindow(@NonNull BaseViewHolder holder) {
         super.onViewAttachedToWindow(holder);
-        // 滑动到底部时加载缓存，防止因RecyclerView预加载到最后一项后，
-        // 又有item加入缓存时，没有调用到onBindViewHolder而无法平滑滚动
-        if(mData != null && mRv != null) {
-            if (holder.getAdapterPosition() >= mData.size() - 5) {
-                mRv.post(() -> readCache(DINO_MESSAGE_APPEND_SIZE, true));
-            }
-        }
-    }
-
-    public void readCache(boolean notify) {
-        readCache(DINO_MESSAGE_MAX_CACHE_SIZE, notify);
-    }
-
-    private void readCache(int limit, boolean notify) {
-        if (dinoCacheResults.size() > 0 && mData != null) {
-            int beforeSize = mData.size();
-            int insertCount = 0;
-            while (insertCount < limit && dinoCacheResults.size() > 0) {
-                mData.add(dinoCacheResults.remove(0));
-                insertCount ++;
-            }
-            log("加入公屏消息: " + beforeSize + "-" + insertCount);
-            if (notify) notifyItemRangeInserted(beforeSize, insertCount);
-
-            int removeCount = 0;
-            while (mData.size() > DINO_MESSAGE_MAX_SIZE) {
-                mData.remove(0);
-                removeCount ++;
-            }
-            if (removeCount > 0) {
-                log("移除公屏消息：0-" + removeCount);
-                if (notify) notifyItemRangeRemoved(0, removeCount);
-            }
-        }
     }
 
     /**
