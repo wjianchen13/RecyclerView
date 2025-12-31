@@ -1,16 +1,22 @@
 package com.example.recyclerview.message;
 
+import static android.view.View.*;
+
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.Guideline;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recyclerview.R;
 import com.example.recyclerview.scroll.ScrollAdapter;
 import com.example.recyclerview.scroll.ScrollLayoutManager;
 import com.example.recyclerview.test.TestBean;
+import com.example.recyclerview.utils.SoftInputUtils;
 import com.example.recyclerview.utils.Utils;
 
 import java.util.ArrayList;
@@ -19,18 +25,32 @@ import java.util.List;
 /**
  * RecyclerView 模拟消息相关功能
  */
-public class MessageActivity extends AppCompatActivity {
+public class MessageActivity extends AppCompatActivity implements OnClickListener{
 
     private MessageAdapter mAdapter1;
     private int index = 0;
     private RecyclerView rvScroll1;
     private List<TestBean> mData1;
     private MessageLayoutManager manager1;
+    private View line1;
+    private View line2;
+    private View line3;
+    private EditText edtvTest;
+    private ImageView imgvChat;
+    private ImageView imgvClose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
+        line1 = findViewById(R.id.guideline1);
+        line2 = findViewById(R.id.guideline2);
+        line3 = findViewById(R.id.guideline3);
+        edtvTest = findViewById(R.id.edtv_test);
+        imgvChat = findViewById(R.id.imgv_chat);
+        imgvChat.setOnClickListener(this);
+        imgvClose = findViewById(R.id.imgv_close);
+        imgvClose.setOnClickListener(this);
         initRecyclerView1();
     }
 
@@ -149,6 +169,36 @@ public class MessageActivity extends AppCompatActivity {
 
     private interface CallBack {
         void onSuccess();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(view.getId() == R.id.imgv_chat) {
+            showChat();
+        } else if(view.getId() == R.id.imgv_close) {
+            hideChat();
+        }
+    }
+
+    private void showChat() {
+        line1.setVisibility(View.GONE);
+        line2.setVisibility(View.VISIBLE);
+        line3.setVisibility(View.GONE);
+        edtvTest.setVisibility(View.VISIBLE);
+        imgvChat.setVisibility(View.GONE);
+        imgvClose.setVisibility(View.VISIBLE);
+        SoftInputUtils.showSoftInput(edtvTest);
+    }
+
+
+    private void hideChat() {
+        line1.setVisibility(View.VISIBLE);
+        line2.setVisibility(View.GONE);
+        line3.setVisibility(View.VISIBLE);
+        edtvTest.setVisibility(View.GONE);
+        imgvChat.setVisibility(View.VISIBLE);
+        imgvClose.setVisibility(View.GONE);
+        SoftInputUtils.hideSoftInput(edtvTest);
     }
 
 }
