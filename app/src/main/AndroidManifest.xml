@@ -104,6 +104,12 @@
             android:name=".scroll_update.ScrollUpdateActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".message.MessageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+
     </application>
 
 </manifest>

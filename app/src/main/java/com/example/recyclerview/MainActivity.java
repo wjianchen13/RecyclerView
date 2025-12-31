@@ -17,6 +17,7 @@ import com.example.recyclerview.flexbox.FlexboxActivity;
 import com.example.recyclerview.flowlayout.FlowlayoutActivity;
 import com.example.recyclerview.header.HeaderActivity;
 import com.example.recyclerview.marquee.MarqueeActivity;
+import com.example.recyclerview.message.MessageActivity;
 import com.example.recyclerview.movie.MovieActivity;
 import com.example.recyclerview.refresh.RefreshActivity;
 import com.example.recyclerview.resize.ResizeActivity;
@@ -278,6 +279,16 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onTest8(View v) {
         startActivity(new Intent(MainActivity.this, ScrollUpdateActivity.class));
+    }
+
+    /**
+     * RecyclerView 模拟消息相关功能
+     *
+     * @param
+     * @return
+     */
+    public void onTest9(View v) {
+        startActivity(new Intent(MainActivity.this, MessageActivity.class));
     }
 }
 

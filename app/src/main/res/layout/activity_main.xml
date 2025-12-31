@@ -214,5 +214,14 @@
             android:onClick="onTest8"
             android:textAllCaps="false"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="RecyclerView 模拟消息相关功能"
+            android:onClick="onTest9"
+            android:textAllCaps="false"/>
+
     </LinearLayout>
 </ScrollView>
