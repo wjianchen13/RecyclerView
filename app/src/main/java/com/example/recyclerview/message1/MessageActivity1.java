@@ -17,6 +17,7 @@ import com.example.recyclerview.message.MessageAdapter;
 import com.example.recyclerview.message.MessageLayoutManager;
 import com.example.recyclerview.test.TestBean;
 import com.example.recyclerview.utils.SoftInputUtils;
+import com.example.recyclerview.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,18 +87,19 @@ public class MessageActivity1 extends AppCompatActivity implements OnClickListen
     }
 
     /**
-     * 滚动到具体位置
-     * 滚动到具体位置是有问题的，当滚动的位置已经显示，这时滚动最后实际显示出下一个item
+     * 修改高度
      * @param v
      */
     public void onTest1(View v) {
-        TestBean bean = new TestBean();
-        bean.setContent("第 " + index ++ + " 个item");
-        mAdapter1.addMsg(bean);
+        change1();
     }
 
+    /**
+     * 恢复高度
+     * @param v
+     */
     public void onTest2(View v) {
-        rvScroll1.smoothScrollToPosition(13);
+        change2();
     }
 
     public void onTest3(View v) {
@@ -143,6 +145,7 @@ public class MessageActivity1 extends AppCompatActivity implements OnClickListen
                 SoftInputUtils.showSoftInput(edtvTest);
             }
         });
+        change1();
 //        SoftInputUtils.showSoftInput(edtvTest);
 //        mAdapter1.notifyDataSetChanged();
     }
@@ -161,17 +164,18 @@ public class MessageActivity1 extends AppCompatActivity implements OnClickListen
 //        });
         SoftInputUtils.hideSoftInput(edtvTest);
 //        mAdapter1.notifyDataSetChanged();
+        change2();
     }
 
     private void change1() {
         ConstraintLayout.LayoutParams p = (ConstraintLayout.LayoutParams)rvScroll1.getLayoutParams();
-        p.height = 800;
+        p.height = Utils.dip2px(this, 250);
         rvScroll1.setLayoutParams(p);
     }
 
     private void change2() {
         ConstraintLayout.LayoutParams p = (ConstraintLayout.LayoutParams)rvScroll1.getLayoutParams();
-        p.height = 300;
+        p.height = Utils.dip2px(this, 120);
         rvScroll1.setLayoutParams(p);
     }
 

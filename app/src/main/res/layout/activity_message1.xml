@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <FrameLayout
+    <com.example.recyclerview.message1.ApiesxKeepSizeConstraintsLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
@@ -19,7 +19,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/ic_test3" />
 
-    </FrameLayout>
+    </com.example.recyclerview.message1.ApiesxKeepSizeConstraintsLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -58,7 +58,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_scroll1"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="120dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="#3fff0000"
@@ -90,7 +90,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:visibility="visible"
         app:layout_constraintTop_toTopOf="parent">
@@ -106,7 +106,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="添加数据"
+                android:text="修改高度"
                 android:onClick="onTest1"
                 android:textAllCaps="false"/>
 
@@ -116,7 +116,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="移动到某一条数据"
+                android:text="恢复高度"
                 android:onClick="onTest2"
                 android:textAllCaps="false"/>
 
