@@ -44,6 +44,6 @@ class ApiesxKeepSizeConstraintsLayout : ConstraintLayout {
     }
 
     companion object {
-        private val TAG = "ApiesxKeepSizeConstraintsLayout"
+        private val TAG = ApiesxKeepSizeConstraintsLayout::class.java.simpleName
     }
 }
