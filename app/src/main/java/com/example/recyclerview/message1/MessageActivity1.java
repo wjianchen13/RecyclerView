@@ -1,4 +1,4 @@
-package com.example.recyclerview.message;
+package com.example.recyclerview.message1;
 
 import static android.view.View.OnClickListener;
 
@@ -9,9 +9,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recyclerview.R;
+import com.example.recyclerview.message.MessageAdapter;
+import com.example.recyclerview.message.MessageLayoutManager;
 import com.example.recyclerview.test.TestBean;
 import com.example.recyclerview.utils.SoftInputUtils;
 
@@ -25,15 +28,13 @@ import java.util.List;
  * 点击关闭，关闭软键盘，RecyclerView高度变小，会发现最上面一条数据变成空白不显示了，然后调用notifyDataSetChanged
  * 又可以显示出来
  */
-public class MessageActivity extends AppCompatActivity implements OnClickListener{
+public class MessageActivity1 extends AppCompatActivity implements OnClickListener{
 
-    private MessageAdapter mAdapter1;
+    private MessageAdapter1 mAdapter1;
     private int index = 0;
     private RecyclerView rvScroll1;
     private List<TestBean> mData1;
-    private MessageLayoutManager manager1;
-    private View line1;
-    private View line2;
+    private MessageLayoutManager1 manager1;
     private View line3;
     private EditText edtvTest;
     private ImageView imgvChat;
@@ -42,9 +43,7 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message);
-        line1 = findViewById(R.id.guideline1);
-        line2 = findViewById(R.id.guideline2);
+        setContentView(R.layout.activity_message1);
         line3 = findViewById(R.id.guideline3);
         edtvTest = findViewById(R.id.edtv_test);
         imgvChat = findViewById(R.id.imgv_chat);
@@ -57,7 +56,7 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
     private void initRecyclerView1() {
         rvScroll1 = findViewById(R.id.rv_scroll1);
 //        rvScroll1.setItemAnimator(null);
-        manager1 = new MessageLayoutManager(this);
+        manager1 = new MessageLayoutManager1(this);
         manager1.setOrientation(RecyclerView.VERTICAL);
 
         rvScroll1.setLayoutManager(manager1);
@@ -77,7 +76,7 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
             mData1.add(bean);
         }
 
-        mAdapter1 = new MessageAdapter(this, mData1, rvScroll1);
+        mAdapter1 = new MessageAdapter1(this, mData1, rvScroll1);
 
         manager1.setDinoListener(mAdapter1);
 //        adapter.notifyItemRemoved();
@@ -134,8 +133,6 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
     }
 
     private void showChat() {
-        line1.setVisibility(View.GONE);
-        line2.setVisibility(View.VISIBLE);
         line3.setVisibility(View.GONE);
         edtvTest.setVisibility(View.VISIBLE);
         imgvChat.setVisibility(View.GONE);
@@ -152,8 +149,6 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
 
 
     private void hideChat() {
-        line1.setVisibility(View.VISIBLE);
-        line2.setVisibility(View.GONE);
         line3.setVisibility(View.VISIBLE);
         edtvTest.setVisibility(View.GONE);
         imgvChat.setVisibility(View.VISIBLE);
@@ -164,8 +159,20 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
 //                SoftInputUtils.hideSoftInput(edtvTest);
 //            }
 //        });
-//        SoftInputUtils.hideSoftInput(edtvTest);
+        SoftInputUtils.hideSoftInput(edtvTest);
 //        mAdapter1.notifyDataSetChanged();
+    }
+
+    private void change1() {
+        ConstraintLayout.LayoutParams p = (ConstraintLayout.LayoutParams)rvScroll1.getLayoutParams();
+        p.height = 800;
+        rvScroll1.setLayoutParams(p);
+    }
+
+    private void change2() {
+        ConstraintLayout.LayoutParams p = (ConstraintLayout.LayoutParams)rvScroll1.getLayoutParams();
+        p.height = 300;
+        rvScroll1.setLayoutParams(p);
     }
 
 }
