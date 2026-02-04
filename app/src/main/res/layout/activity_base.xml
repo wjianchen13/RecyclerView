@@ -1,37 +1,12 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_test2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:padding="10dp"
-        android:background="#ff00ff00"
-        android:text="add"
-        android:clickable="true"
-        android:textSize="18sp"
-        android:layout_alignParentBottom="true"/>
-
-    <TextView
-        android:id="@+id/tv_test1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="delete 0"
-        android:background="#ff00ff00"
-        android:clickable="true"
-        android:textSize="18sp"
-        android:layout_above="@id/tv_test2"/>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:layout_above="@id/tv_test1">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -44,5 +19,49 @@
             android:layout_below="@id/tv_test1"
             />
     </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="添加数据"
+            android:clickable="true"
+            android:textSize="13sp"
+            android:onClick="onTest1"/>
 
-</RelativeLayout>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="修改数据"
+            android:clickable="true"
+            android:textSize="13sp"
+            android:onClick="onTest2"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="add"
+            android:clickable="true"
+            android:textSize="13sp"
+            android:onClick="onTest3"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
