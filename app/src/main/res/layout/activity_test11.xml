@@ -42,7 +42,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="10dp"
-            android:text="移除数据"
+            android:text="拉黑用户1"
             android:clickable="true"
             android:textSize="13sp"
             android:onClick="onTest1"/>
@@ -52,20 +52,68 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="添加数据"
+            android:text="取消拉黑用户1"
             android:clickable="true"
             android:textSize="13sp"
             android:onClick="onTest2"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="拉黑用户2"
+            android:clickable="true"
+            android:textSize="13sp"
+            android:onClick="onTest3"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="测试"
+            android:text="取消拉黑用户2"
             android:clickable="true"
             android:textSize="13sp"
-            android:onClick="onTest3"/>
+            android:onClick="onTest4"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="拉黑用户3"
+            android:clickable="true"
+            android:textSize="13sp"
+            android:onClick="onTest5"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="取消拉黑用户2"
+            android:clickable="true"
+            android:textSize="13sp"
+            android:onClick="onTest6"/>
 
     </LinearLayout>
 

@@ -53,17 +53,29 @@ public class TestActivity11 extends AppCompatActivity {
 
         adapter = new TestAdapter11(datas);
         recyclerView.setAdapter(adapter);
+//        recyclerView.setItemAnimator(null); // 关闭增删动画
     }
 
     /**
-     * 拉黑用户：移除下标为 3 的用户
+     * 拉黑用户：示例拉黑 id 为 3 的用户
      */
     public void onTest1(View v) {
-        if (datas.isEmpty()) {
-            Toast.makeText(this, "没有可拉黑的用户", Toast.LENGTH_SHORT).show();
+        blockUser(3);
+    }
+
+    private void blockUser(int userId) {
+        // 在当前展示列表中按 userId 找到对应位置
+        int pos = -1;
+        for (int i = 0; i < datas.size(); i++) {
+            if (datas.get(i).id == userId) {
+                pos = i;
+                break;
+            }
+        }
+        if (pos == -1) {
+            Toast.makeText(this, "列表中找不到该用户", Toast.LENGTH_SHORT).show();
             return;
         }
-        int pos = Math.min(3, datas.size() - 1);
         User11 user = datas.get(pos);
         blockManager.block(user);
         datas.remove(pos);
@@ -89,6 +101,36 @@ public class TestActivity11 extends AppCompatActivity {
         datas.add(insertPos, target);
         adapter.notifyItemInserted(insertPos);
         Toast.makeText(this, "已取消拉黑：" + target.name + "，恢复到位置 " + insertPos, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 拉黑用户：示例拉黑 id 为 3 的用户
+     */
+    public void onTest3(View v) {
+        blockUser(10);
+    }
+
+    /**
+     * 取消拉黑：指定 userId，将该用户恢复到原来的位置
+     */
+    public void onTest4(View v) {
+        // 示例：取消拉黑 id 为 3 的用户
+        unblockUser(10);
+    }
+
+    /**
+     * 拉黑用户：示例拉黑 id 为 3 的用户
+     */
+    public void onTest5(View v) {
+        blockUser(8);
+    }
+
+    /**
+     * 取消拉黑：指定 userId，将该用户恢复到原来的位置
+     */
+    public void onTest6(View v) {
+        // 示例：取消拉黑 id 为 3 的用户
+        unblockUser(8);
     }
 
 }
