@@ -38,7 +38,7 @@ public class TestActivity11 extends AppCompatActivity {
 
     private void initData() {
         List<User11> users = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 1000; i++) {
             users.add(new User11(i, "用户" + i));
         }
         blockManager.init(users);
@@ -107,7 +107,7 @@ public class TestActivity11 extends AppCompatActivity {
      * 拉黑用户：示例拉黑 id 为 3 的用户
      */
     public void onTest3(View v) {
-        blockUser(10);
+        blockUser(990);
     }
 
     /**
@@ -115,7 +115,7 @@ public class TestActivity11 extends AppCompatActivity {
      */
     public void onTest4(View v) {
         // 示例：取消拉黑 id 为 3 的用户
-        unblockUser(10);
+        unblockUser(990);
     }
 
     /**
