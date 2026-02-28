@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.recyclerview.R;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * 测试删除数据，恢复数据情况
@@ -23,12 +21,8 @@ public class TestActivity11 extends AppCompatActivity {
 
     // 当前展示的列表
     private List<User11> datas = new ArrayList<>();
-    // 原始完整列表（不会改变，用于恢复位置的参考）
-    private List<User11> allDatas = new ArrayList<>();
-    // 被拉黑的用户列表，支持按任意指定用户移除
-    private List<User11> blockedList = new ArrayList<>();
-    // 被拉黑用户的集合，用于 O(1) 的 contains 查询
-    private Set<User11> blockedSet = new HashSet<>();
+    // 拉黑管理，封装拉黑相关数据和逻辑
+    private BlockManager blockManager = new BlockManager();
 
     private TestAdapter11 adapter;
     private LinearLayoutManager layoutManager;
@@ -43,10 +37,12 @@ public class TestActivity11 extends AppCompatActivity {
     }
 
     private void initData() {
+        List<User11> users = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            allDatas.add(new User11(i, "用户" + i));
+            users.add(new User11(i, "用户" + i));
         }
-        datas.addAll(allDatas);
+        blockManager.init(users);
+        datas.addAll(users);
     }
 
     private void initRecyclerView() {
@@ -69,8 +65,7 @@ public class TestActivity11 extends AppCompatActivity {
         }
         int pos = Math.min(3, datas.size() - 1);
         User11 user = datas.get(pos);
-        blockedList.add(user);
-        blockedSet.add(user);
+        blockManager.block(user);
         datas.remove(pos);
         adapter.notifyItemRemoved(pos);
         Toast.makeText(this, "已拉黑：" + user.name, Toast.LENGTH_SHORT).show();
@@ -85,44 +80,15 @@ public class TestActivity11 extends AppCompatActivity {
     }
 
     private void unblockUser(int userId) {
-        // 在 blockedList 中找到目标用户
-        User11 target = null;
-        for (User11 u : blockedList) {
-            if (u.id == userId) {
-                target = u;
-                break;
-            }
-        }
+        User11 target = blockManager.unblock(userId);
         if (target == null) {
             Toast.makeText(this, "用户不在黑名单中", Toast.LENGTH_SHORT).show();
             return;
         }
-        blockedList.remove(target);
-        blockedSet.remove(target);
-        int insertPos = calcInsertPosition(target);
+        int insertPos = blockManager.calcInsertPosition(target);
         datas.add(insertPos, target);
         adapter.notifyItemInserted(insertPos);
         Toast.makeText(this, "已取消拉黑：" + target.name + "，恢复到位置 " + insertPos, Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * 根据 allDatas 的顺序，计算 user 应插入 datas 的位置。
-     * 逻辑：找出 allDatas 中 user 之前有多少个"未被拉黑"的用户，那个数量就是插入位置。
-     *
-     * 时间复杂度：O(n)
-     *   - allDatas.indexOf()：O(n)，无法避免（不单独维护 index 的前提下）
-     *   - 内层 blockedSet.contains()：O(1)（HashSet），不再随黑名单数量 b 线性增长
-     *   - 优化前 O(n×b)，优化后 O(n)
-     */
-    private int calcInsertPosition(User11 user) {
-        int allIndex = allDatas.indexOf(user);  // O(n)
-        int insertPos = 0;
-        for (int i = 0; i < allIndex; i++) {
-            if (!blockedSet.contains(allDatas.get(i))) {  // O(1)
-                insertPos++;
-            }
-        }
-        return insertPos;
     }
 
 }
