@@ -13,9 +13,9 @@ import java.util.List;
  */
 public class TestAdapter11 extends RecyclerView.Adapter<TestAdapter11.ViewHolder>{
 
-    private List<String> mDataset;
+    private List<User11> mDataset;
 
-    public TestAdapter11(List<String> dataset) {
+    public TestAdapter11(List<User11> dataset) {
         super();
         mDataset = dataset;
     }
@@ -24,14 +24,12 @@ public class TestAdapter11 extends RecyclerView.Adapter<TestAdapter11.ViewHolder
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = View.inflate(viewGroup.getContext(), android.R.layout.simple_list_item_1, null);
         ViewHolder holder = new ViewHolder(view);
-        System.out.println("-----------------------> onCreateViewHolder");
         return holder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        viewHolder.mTextView.setText(mDataset.get(i));
-        System.out.println("-----------------------> onBindViewHolder");
+        viewHolder.mTextView.setText("id: " + mDataset.get(i).id + "   name: " + mDataset.get(i).name);
     }
 
     @Override
@@ -39,11 +37,11 @@ public class TestAdapter11 extends RecyclerView.Adapter<TestAdapter11.ViewHolder
         return mDataset.size();
     }
 
-    public List<String> getDataset() {
+    public List<User11> getDataset() {
         return mDataset;
     }
 
-    public void setDataset(List<String> mDataset) {
+    public void setDataset(List<User11> mDataset) {
         this.mDataset = mDataset;
     }
 
