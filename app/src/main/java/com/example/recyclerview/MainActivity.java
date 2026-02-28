@@ -28,6 +28,7 @@ import com.example.recyclerview.span.SpanActivity;
 import com.example.recyclerview.swipe.SwipeActivity;
 import com.example.recyclerview.test.TestActivity;
 import com.example.recyclerview.test.TestActivity1;
+import com.example.recyclerview.test11.TestActivity11;
 import com.example.recyclerview.third.activity.ThirdActivity;
 import com.example.recyclerview.visiblestate.StateActivity;
 
@@ -37,6 +38,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    /**
+     * 测试删除数据，恢复数据情况
+     * @param
+     * @return
+     */
+    public void onTest11(View v) {
+        Intent it1 = new Intent();
+        it1.setClass(MainActivity.this, TestActivity11.class);
+        startActivity(it1);
     }
 
     /**

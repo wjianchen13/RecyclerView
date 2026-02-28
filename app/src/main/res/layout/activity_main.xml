@@ -6,6 +6,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="测试删除数据，恢复数据情况"
+            android:onClick="onTest11"
+            android:textAllCaps="false"/>
     
         <Button
             android:layout_width="match_parent"

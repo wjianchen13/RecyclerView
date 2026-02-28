@@ -114,6 +114,11 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"/>
 
+        <activity
+            android:name=".test11.TestActivity11"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
 
     </application>
 
