@@ -8,12 +8,8 @@ import java.util.Set;
 /**
  * 列表级别的拉黑管理类，封装当前 Fragment 的数据和插入位置计算逻辑
  *
- * 拉黑状态双层维护：
- *  - localBlockedIds：本 Fragment 私有，所有判断/计算都走这里
- *  - BlockedUserManager：全局单例，block/unblock 时同步更新
- *
- * 原因：外部业务可能先清除全局拉黑再通知 Fragment，
- *       此时全局单例已无数据，必须依赖本地副本才能正确处理
+ * 本类只维护当前 Fragment 自己的拉黑状态（localBlockedIds），
+ * 不依赖全局单例，由调用方（Fragment/Activity）负责同步全局单例。
  */
 public class BlockManager {
 
@@ -68,17 +64,15 @@ public class BlockManager {
     }
 
     /**
-     * 拉黑用户
-     * 同时写入本地副本和全局单例
+     * 拉黑用户，写入本地黑名单
      */
     public void block(User11 user) {
         localBlockedIds.add(user.id);
-        BlockedUserManager.getInstance().block(user.id);
     }
 
     /**
      * 取消拉黑，按 userId 查找
-     * 判断和移除都走本地副本，全局单例同步更新（外部已清除则无副作用）
+     * 判断和移除都走本地黑名单
      *
      * @return 找到并恢复的用户；若本地黑名单中不存在则返回 null
      */
@@ -87,7 +81,6 @@ public class BlockManager {
             return null;
         }
         localBlockedIds.remove(userId);
-        BlockedUserManager.getInstance().unblock(userId); // 同步全局，若外部已清除则无副作用
         for (User11 user : allDatas) {
             if (user.id == userId) {
                 return user;
@@ -108,6 +101,7 @@ public class BlockManager {
      */
     public boolean isBlockedEmpty() {
         return localBlockedIds.isEmpty();
+
     }
 
     /**

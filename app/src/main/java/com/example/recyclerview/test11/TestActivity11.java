@@ -64,6 +64,7 @@ public class TestActivity11 extends AppCompatActivity {
 
     private void blockUser(int userId) {
         if(blockManager.containsUser(userId)) {
+            BlockedUserManager.getInstance().block(userId);
             BlockUtils.blockUser(this, userId, datas, blockManager, adapter);
         }
     }
@@ -78,6 +79,7 @@ public class TestActivity11 extends AppCompatActivity {
 
     private void unblockUser(int userId) {
         if(blockManager.containsUser(userId)) {
+            BlockedUserManager.getInstance().unblock(userId); // 同步全局，若外部已清除则无副作用
             BlockUtils.unblockUser(this, userId, datas, blockManager, adapter);
         }
     }
