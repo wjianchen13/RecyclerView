@@ -2,7 +2,6 @@ package com.example.recyclerview.test11;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -37,12 +36,12 @@ public class TestActivity11 extends AppCompatActivity {
     }
 
     private void initData() {
-        List<User11> users = new ArrayList<>();
+        blockManager.clear();
         for (int i = 0; i < 1000; i++) {
-            users.add(new User11(i, "用户" + i));
+            User11 user = new User11(i, "用户" + i);
+            blockManager.add(user);
+            datas.add(user);
         }
-        blockManager.init(users);
-        datas.addAll(users);
     }
 
     private void initRecyclerView() {
@@ -64,23 +63,9 @@ public class TestActivity11 extends AppCompatActivity {
     }
 
     private void blockUser(int userId) {
-        // 在当前展示列表中按 userId 找到对应位置
-        int pos = -1;
-        for (int i = 0; i < datas.size(); i++) {
-            if (datas.get(i).id == userId) {
-                pos = i;
-                break;
-            }
+        if(blockManager.isInDisplayList(userId)) {
+            BlockUtils.blockUser(this, userId, datas, blockManager, adapter);
         }
-        if (pos == -1) {
-            Toast.makeText(this, "列表中找不到该用户", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        User11 user = datas.get(pos);
-        blockManager.block(user);
-        datas.remove(pos);
-        adapter.notifyItemRemoved(pos);
-        Toast.makeText(this, "已拉黑：" + user.name, Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -92,15 +77,9 @@ public class TestActivity11 extends AppCompatActivity {
     }
 
     private void unblockUser(int userId) {
-        User11 target = blockManager.unblock(userId);
-        if (target == null) {
-            Toast.makeText(this, "用户不在黑名单中", Toast.LENGTH_SHORT).show();
-            return;
+        if(blockManager.isInDisplayList(userId)) {
+            BlockUtils.unblockUser(this, userId, datas, blockManager, adapter);
         }
-        int insertPos = blockManager.calcInsertPosition(target);
-        datas.add(insertPos, target);
-        adapter.notifyItemInserted(insertPos);
-        Toast.makeText(this, "已取消拉黑：" + target.name + "，恢复到位置 " + insertPos, Toast.LENGTH_SHORT).show();
     }
 
     /**

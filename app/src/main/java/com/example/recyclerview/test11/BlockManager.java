@@ -2,26 +2,66 @@ package com.example.recyclerview.test11;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * 拉黑管理类，封装拉黑/取消拉黑的数据和查找逻辑
  */
 public class BlockManager {
 
-    // 原始完整列表（不会改变，用于恢复位置的参考）
+    /**
+     * 原始完整列表（不会改变，用于恢复位置的参考）
+     */
     private final List<User11> allDatas = new ArrayList<>();
-    // userId -> User11，同时承担两个职责：
-    //   1. unblock() 时按 id O(1) 取出对象
-    //   2. calcInsertPosition() 时 O(1) 判断某用户是否被拉黑
+
+    /**
+     * 本列表所有用户的 id 集合（init 时构建，不随拉黑变化），用于 O(1) 判断用户是否属于本 Fragment
+     */
+    private final Set<Integer> allUserIdSet = new HashSet<>();
+
+    /**
+     * userId -> User11，同时承担两个职责：
+     * 1. unblock() 时按 id O(1) 取出对象
+     * 2. calcInsertPosition() 时 O(1) 判断某用户是否被拉黑
+     */
     private final Map<Integer, User11> blockedMap = new HashMap<>();
 
     /**
      * 初始化原始列表（首次加载或分页追加时调用）
      */
-    public void init(List<User11> datas) {
-        allDatas.addAll(datas);
+    public void addUsers(List<User11> datas) {
+        for (User11 user : datas) {
+            add(user);
+        }
+    }
+
+    /**
+     * 添加用户信息
+     * @param user
+     */
+    public void add(User11 user) {
+        if(user != null) {
+            allDatas.add(user);
+            allUserIdSet.add(user.id);
+        }
+    }
+
+    /**
+     * 刷新的时候首先清除所有数据
+     */
+    public void clear() {
+        allDatas.clear();
+        allUserIdSet.clear();
+    }
+
+    /**
+     * 判断用户是否当前在展示列表中（属于本 Fragment 且未被拉黑），O(1)
+     */
+    public boolean isInDisplayList(int userId) {
+        return allUserIdSet.contains(userId);
     }
 
     /**
