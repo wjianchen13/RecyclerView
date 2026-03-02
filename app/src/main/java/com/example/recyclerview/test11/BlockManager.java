@@ -60,7 +60,7 @@ public class BlockManager {
     /**
      * 判断用户是否当前在展示列表中（属于本 Fragment 且未被拉黑），O(1)
      */
-    public boolean isInDisplayList(int userId) {
+    public boolean containsUser(int userId) {
         return allUserIdSet.contains(userId);
     }
 
@@ -101,7 +101,13 @@ public class BlockManager {
      * 时间复杂度：O(n)，内层 blockedMap.containsKey() 为 O(1)
      */
     public int calcInsertPosition(User11 user) {
-        int allIndex = allDatas.indexOf(user);  // O(n)
+        int allIndex = -1;
+        for (int i = 0; i < allDatas.size(); i++) {
+            if (allDatas.get(i).id == user.id) {  // 按 id 查找，避免刷新后对象引用失效
+                allIndex = i;
+                break;
+            }
+        }
         int insertPos = 0;
         for (int i = 0; i < allIndex; i++) {
             if (!blockedMap.containsKey(allDatas.get(i).id)) {  // O(1)

@@ -63,7 +63,7 @@ public class TestActivity11 extends AppCompatActivity {
     }
 
     private void blockUser(int userId) {
-        if(blockManager.isInDisplayList(userId)) {
+        if(blockManager.containsUser(userId)) {
             BlockUtils.blockUser(this, userId, datas, blockManager, adapter);
         }
     }
@@ -77,7 +77,7 @@ public class TestActivity11 extends AppCompatActivity {
     }
 
     private void unblockUser(int userId) {
-        if(blockManager.isInDisplayList(userId)) {
+        if(blockManager.containsUser(userId)) {
             BlockUtils.unblockUser(this, userId, datas, blockManager, adapter);
         }
     }
