@@ -54,6 +54,7 @@ public class BlockManager {
     public void clear() {
         allDatas.clear();
         allUserIdSet.clear();
+        localBlockedIds.clear();
     }
 
     /**
