@@ -59,7 +59,7 @@ public class TestActivity11 extends AppCompatActivity {
      * 拉黑用户：示例拉黑 id 为 3 的用户
      */
     public void onTest1(View v) {
-        blockUser(3);
+        blockUser(9);
     }
 
     private void blockUser(int userId) {
@@ -73,7 +73,7 @@ public class TestActivity11 extends AppCompatActivity {
      */
     public void onTest2(View v) {
         // 示例：取消拉黑 id 为 3 的用户
-        unblockUser(3);
+        unblockUser(9);
     }
 
     private void unblockUser(int userId) {
@@ -86,7 +86,7 @@ public class TestActivity11 extends AppCompatActivity {
      * 拉黑用户：示例拉黑 id 为 3 的用户
      */
     public void onTest3(View v) {
-        blockUser(990);
+        blockUser(10);
     }
 
     /**
@@ -94,14 +94,14 @@ public class TestActivity11 extends AppCompatActivity {
      */
     public void onTest4(View v) {
         // 示例：取消拉黑 id 为 3 的用户
-        unblockUser(990);
+        unblockUser(10);
     }
 
     /**
      * 拉黑用户：示例拉黑 id 为 3 的用户
      */
     public void onTest5(View v) {
-        blockUser(8);
+        blockUser(990);
     }
 
     /**
@@ -109,7 +109,7 @@ public class TestActivity11 extends AppCompatActivity {
      */
     public void onTest6(View v) {
         // 示例：取消拉黑 id 为 3 的用户
-        unblockUser(8);
+        unblockUser(990);
     }
 
 }
